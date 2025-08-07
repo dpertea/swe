@@ -44,9 +44,9 @@ section {
 }*/
 
 .section-title::after {
-  content: '';
+  content: '' !important;
   display: inline-block;
-  width: 14px; 
+  width: 14px !important; 
   height: 1em;
   background-color: #fcd34d;
   margin-left: 6px;
@@ -64,10 +64,10 @@ section {
 }
 
 .section-title {
-  display: inline-block;
+  display: inline-block !important;
   overflow: hidden;              
-  white-space: nowrap;           
-  font-weight: 700;
+  white-space: nowrap !important;           
+  font-weight: 700 !important;
   font-style: italic;
  
 

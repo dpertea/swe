@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import emailjs from "@emailjs/browser";
 import { keyframes } from "@mui/system";
+import "../App.css";
 
 export const Contact: React.FC = () => {
   const [form, setForm] = useState({
@@ -75,6 +76,7 @@ export const Contact: React.FC = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
+        alignItems: "center",
         px: 2,
         py: 4,
       }}

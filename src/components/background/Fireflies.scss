@@ -56,7 +56,7 @@ $highlight-colors: (
   &::after {
     background: white;
     opacity: 0;
-    box-shadow: 0 0 0vw 0vw #fcd34d;
+    box-shadow: 0 0 0vw 0vw #fcd34d; 
     animation: drift ease alternate infinite, flash ease infinite;
     /*text-shadow:
     0 0 6px #fcd34d,

@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
+import "../App.css";
 
 pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.js";
 
@@ -45,9 +46,6 @@ export const Resume: React.FC = () => {
 
   return (
     <Container maxWidth="md" sx={{ my: 0 }}>
-      <Typography className="section-title" variant="h3" component="h2">
-        Resume
-      </Typography>
       <Box
         ref={containerRef}
         display="flex"
@@ -70,6 +68,9 @@ export const Resume: React.FC = () => {
           },*/
         }}
       >
+        <Typography className="section-title" variant="h3" component="h2">
+          Resume
+        </Typography>
         <Button
           component="a"
           href="/DoriaPerteaResume.pdf"
