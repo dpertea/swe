@@ -2,10 +2,9 @@ import React from "react";
 import { Typography, Container, Button, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import TextDecryptEffect from "./TextDecryptEffect";
-import { useTheme } from "@mui/material/styles";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
-const buildValues = ["Workflows", "Experiences", "Automations", "Tools"];
+const buildValues = ["Workflows", "Automations", "Experiences", "Tools"];
 
 const AnimatedContainer = styled(Container)(() => ({
   animation: "slideInLeft 0.8s ease-out forwards",
@@ -30,8 +29,6 @@ const AnimatedContainer = styled(Container)(() => ({
 }));
 
 export const Intro: React.FC = () => {
-  const theme = useTheme();
-
   const scrollToProjects = () => {
     const section = document.getElementById("projects");
     if (section) {
@@ -66,22 +63,25 @@ export const Intro: React.FC = () => {
       <Button
         component="a"
         variant="outlined"
-        color="accent.main"
         endIcon={<ArrowDownwardIcon />}
         sx={{
-          mt: 3,
+          mt: 4,
+          px: 4,
+          py: 1.5,
+          fontSize: "1rem",
+          fontWeight: 600,
           opacity: 0,
           animation: "fadeIn 0.8s ease-out 1.6s forwards",
           "@keyframes fadeIn": {
             from: { opacity: 0 },
             to: { opacity: 1 },
           },
-          "&:hover": {
-            backgroundColor: "accent.dark",
-          },
-          backgroundColor: "#121212",
-          outline: "accent.main",
+          borderColor: "accent.main",
           color: "accent.main",
+          "&:hover": {
+            backgroundColor: "rgba(252, 211, 77, 0.1)",
+            borderColor: "accent.main",
+          },
         }}
         onClick={scrollToProjects}
       >

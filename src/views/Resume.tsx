@@ -68,25 +68,36 @@ export const Resume: React.FC = () => {
           },*/
         }}
       >
-        <Typography className="section-title" variant="h3" component="h2">
+        <Typography
+          className="section-title"
+          variant="h3"
+          component="h2"
+          sx={{ mb: 4 }}
+        >
           Resume
         </Typography>
         <Button
           component="a"
           href="/DoriaPerteaResume.pdf"
           download
-          variant="text"
+          variant="outlined"
           endIcon={<DownloadIcon />}
           sx={{
             mt: 3,
-
-            "&:hover": {
-              backgroundColor: "accent.dark",
-            },
+            mb: 4,
+            px: 3,
+            py: 1.5,
+            fontSize: "1rem",
+            fontWeight: 600,
+            borderColor: "accent.main",
             color: "accent.main",
+            "&:hover": {
+              backgroundColor: "rgba(252, 211, 77, 0.1)",
+              borderColor: "accent.main",
+            },
           }}
         >
-          Download My Resume
+          Download Resume
         </Button>
         <Document
           file={`${window.location.origin}/DoriaPerteaResume.pdf`}

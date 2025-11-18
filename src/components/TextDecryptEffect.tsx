@@ -34,7 +34,7 @@ const TextDecryptEffect: React.FC<TextDecryptEffectProps> = ({
         textShadow: isFinalWord
           ? `0 0 4px ${theme.palette.accent.main}, 0 0 8px ${theme.palette.accent.main}`
           : "none",
-        transition: "color 0.2s ease, text-shadow 0.3s ease",
+        transition: "color 0.1s ease, text-shadow 0.2s ease",
       }}
     >
       {result}

@@ -83,10 +83,15 @@ export const Contact: React.FC = () => {
         zIndex: 1,
       }}
     >
-      <Typography className="section-title" variant="h3" component="h2">
+      <Typography
+        className="section-title"
+        variant="h3"
+        component="h2"
+        sx={{ mb: 4 }}
+      >
         Contact
       </Typography>
-      <Typography variant="h5" gutterBottom sx={{ py: 2 }}>
+      <Typography variant="h5" gutterBottom sx={{ mb: 4 }}>
         I look forward to hearing from you.
       </Typography>
 
@@ -133,9 +138,14 @@ export const Contact: React.FC = () => {
         <Button
           type="submit"
           variant="contained"
+          fullWidth
           sx={{
-            mt: 2,
+            mt: 3,
+            py: 1.5,
+            fontSize: "1rem",
+            fontWeight: 600,
             backgroundColor: "accent.main",
+            color: "#000",
             "&:hover": {
               backgroundColor: "accent.dark",
             },

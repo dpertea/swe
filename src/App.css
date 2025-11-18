@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -6,7 +8,7 @@
 * { 
   outline: 1px solid red;
 }
-*/ 
+*/
 #root {
   height: 100%;
   width: 100%;
@@ -18,13 +20,13 @@
   overflow-x: hidden;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   width: 100%;
   width: 100vw;
-
 }
 
 section {
@@ -43,6 +45,7 @@ section {
     border-bottom: 18px solid #fcd34d;  
 }*/
 
+/* blinking cursor... too messy 
 .section-title::after {
   content: '' !important;
   display: inline-block;
@@ -52,10 +55,11 @@ section {
   margin-left: 6px;
   animation: blink 1s step-end infinite;
   vertical-align: bottom;
-}
+}*/
 
 @keyframes blink {
-  from, to {
+  from,
+  to {
     opacity: 1;
   }
   50% {
@@ -65,16 +69,25 @@ section {
 
 .section-title {
   display: inline-block !important;
-  overflow: hidden;              
-  white-space: nowrap !important;           
+  position: relative;
   font-weight: 700 !important;
-  font-style: italic;
- 
-
-  animation: typing 2s steps(20, end);
+  margin-bottom: 3rem !important;
+  padding-bottom: 1rem;
 }
 
-/* typing effect */
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #fcd34d;
+  border-radius: 2px;
+}
+
+/* typing effect - removed for cleaner look */
 @keyframes typing {
   from {
     width: 0;
@@ -84,12 +97,9 @@ section {
   }
 }
 
-
-
 .card {
   padding: 2em;
 }
-
 
 .loader {
   color: #ffffff;
@@ -106,40 +116,41 @@ section {
 
 @keyframes mltShdSpin {
   0% {
-    box-shadow: 0 -0.83em 0 -0.4em,
-    0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
-    0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
   }
   5%,
   95% {
-    box-shadow: 0 -0.83em 0 -0.4em, 
-    0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 
-    0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
   }
   10%,
   59% {
-    box-shadow: 0 -0.83em 0 -0.4em, 
-    -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, 
-    -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em,
+      -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em,
+      -0.297em -0.775em 0 -0.477em;
   }
   20% {
     box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em,
-     -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, 
-     -0.749em -0.34em 0 -0.477em;
+      -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em,
+      -0.749em -0.34em 0 -0.477em;
   }
   38% {
     box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em,
-     -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, 
-     -0.82em -0.09em 0 -0.477em;
+      -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em,
+      -0.82em -0.09em 0 -0.477em;
   }
   100% {
-    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 
-    0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
   }
 }
 
 @keyframes round {
-  0% { transform: rotate(0deg) }
-  100% { transform: rotate(360deg) }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
- 
