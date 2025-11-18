@@ -9,7 +9,6 @@ const navLinks = [
 
 export const Navbar: React.FC<{ show: boolean }> = ({ show }) => {
   const [activeSection, setActiveSection] = useState<string>("");
-  const [, setIsScrolling] = useState(false);
   const [isSmoothScrolling, setIsSmoothScrolling] = useState(false);
 
   useEffect(() => {
@@ -21,15 +20,11 @@ export const Navbar: React.FC<{ show: boolean }> = ({ show }) => {
         return;
       }
 
-      // set scrolling state to true
-      setIsScrolling(true);
-
       // clear existing timeout
       clearTimeout(scrollTimeout);
 
       // set timeout to detect when scrolling has stopped
       scrollTimeout = setTimeout(() => {
-        setIsScrolling(false);
       }, 150); // 150ms after scrolling stops
 
       const scrollPosition = window.scrollY + 200; // offset for navbar height
@@ -92,7 +87,6 @@ export const Navbar: React.FC<{ show: boolean }> = ({ show }) => {
     // use longer timeout to ensure scroll events have settled
     setTimeout(() => {
       setIsSmoothScrolling(false);
-      setIsScrolling(false); // ensure isScrolling is false when we exit smooth scroll
     }, 1200);
   };
 
