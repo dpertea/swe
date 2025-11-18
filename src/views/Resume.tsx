@@ -13,7 +13,7 @@ import "../App.css";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `${
   import.meta.env.BASE_URL
-}pdf.worker.min.js`;
+}/pdf.worker.min.js`;
 
 export const Resume: React.FC = () => {
   const [numPages, setNumPages] = useState<number | null>(null);
@@ -85,7 +85,7 @@ export const Resume: React.FC = () => {
         </Typography>
         <Button
           component="a"
-          href={`${import.meta.env.BASE_URL}DoriaPerteaResume.pdf`}
+          href={`${import.meta.env.BASE_URL}/DoriaPerteaResume.pdf`}
           download
           variant="outlined"
           endIcon={<DownloadIcon />}
@@ -110,7 +110,7 @@ export const Resume: React.FC = () => {
         <Document
           file={`${window.location.origin}${
             import.meta.env.BASE_URL
-          }DoriaPerteaResume.pdf`}
+          }/DoriaPerteaResume.pdf`}
           onLoadSuccess={handleDocumentLoadSuccess}
         >
           <Page
