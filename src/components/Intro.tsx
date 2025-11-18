@@ -66,11 +66,30 @@ export const Intro: React.FC = () => {
           backgroundColor: "#121212",
           display: "inline-block",
           px: 1,
+          mb: 1,
+        }}
+      >
+        and I like to build
+      </Typography>
+      <br />
+      <Box
+        sx={{
+          opacity: 0,
+          animation: "fadeIn 0.8s ease-out 0.8s forwards",
+          "@keyframes fadeIn": {
+            from: { opacity: 0 },
+            to: { opacity: 1 },
+          },
+          backgroundColor: "#121212",
+          display: "inline-block",
+          px: 1,
           mb: 3,
         }}
       >
-        and I like to build <TextDecryptEffect textValues={buildValues} />
-      </Typography>
+        <Typography variant="h5" component="span">
+          <TextDecryptEffect textValues={buildValues} />
+        </Typography>
+      </Box>
       <br />
       {/*href="/DoriaPerteaResume.pdf"*/}
       <Button

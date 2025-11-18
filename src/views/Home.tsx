@@ -40,8 +40,8 @@ export const Home: React.FC = () => {
             <Box
               sx={{
                 position: "relative",
-                width: { xs: 120, sm: 180, md: 240 },
-                height: { xs: 120, sm: 180, md: 240 },
+                width: { xs: 180, sm: 200, md: 240 },
+                height: { xs: 180, sm: 200, md: 240 },
                 borderRadius: "50%",
                 overflow: "visible",
                 flexShrink: 0,
