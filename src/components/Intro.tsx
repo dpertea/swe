@@ -8,9 +8,11 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 const buildValues = ["Workflows", "Experiences", "Automations", "Tools"];
 
 const AnimatedContainer = styled(Container)(() => ({
-  animation: "slideInLeft 1.8s ease-out forwards",
+  animation: "slideInLeft 0.8s ease-out forwards",
   opacity: 0,
   textAlign: "center", // default for mobile
+  position: "relative",
+  zIndex: 1,
 
   "@media (min-width:600px)": {
     textAlign: "left", // switch to left-aligned on sm+
@@ -50,7 +52,7 @@ export const Intro: React.FC = () => {
         gutterBottom
         sx={{
           opacity: 0,
-          animation: "fadeIn 0.8s ease-out 1.7s forwards",
+          animation: "fadeIn 0.8s ease-out 0.8s forwards",
           "@keyframes fadeIn": {
             from: { opacity: 0 },
             to: { opacity: 1 },
@@ -69,7 +71,7 @@ export const Intro: React.FC = () => {
         sx={{
           mt: 3,
           opacity: 0,
-          animation: "fadeIn 0.8s ease-out 2.5s forwards",
+          animation: "fadeIn 0.8s ease-out 1.6s forwards",
           "@keyframes fadeIn": {
             from: { opacity: 0 },
             to: { opacity: 1 },
@@ -77,7 +79,7 @@ export const Intro: React.FC = () => {
           "&:hover": {
             backgroundColor: "accent.dark",
           },
-          background: "theme.palette.background.default",
+          backgroundColor: "#121212",
           outline: "accent.main",
           color: "accent.main",
         }}

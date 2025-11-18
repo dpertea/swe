@@ -38,6 +38,7 @@ const AppContent = () => {
           width: "100%",
         }}
       >
+        <Fireflies />
         <section id="home" style={{ height: "100vh", width: "100%" }}>
           <Home />
         </section>

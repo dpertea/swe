@@ -46,7 +46,10 @@ export const Layout: React.FC = () => {
       />*/}
       <Navbar /> {/* optional */}
       <Fireflies />
-      <Box component="main" sx={{ flex: 1, display: "flex" }}>
+      <Box
+        component="main"
+        sx={{ flex: 1, display: "flex", position: "relative", zIndex: 1 }}
+      >
         <Outlet />
       </Box>
       <FooterIcons />

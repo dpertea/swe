@@ -78,7 +78,9 @@ export const Contact: React.FC = () => {
         justifyContent: "center",
         alignItems: "center",
         px: 2,
-        py: 4,
+        py: 8,
+        position: "relative",
+        zIndex: 1,
       }}
     >
       <Typography className="section-title" variant="h3" component="h2">
@@ -94,6 +96,9 @@ export const Contact: React.FC = () => {
         noValidate
         sx={{
           animation: `${dropDown} 0.8s ease-out`,
+          backgroundColor: "#1e1e1e",
+          padding: 2,
+          borderRadius: 1,
         }}
       >
         {["name", "email", "message"].map((field) => (

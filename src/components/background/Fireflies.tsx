@@ -37,7 +37,7 @@ const Fireflies: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setVisible(true);
-    }, 2000); // 2 second delay
+    }, 500); // 500ms delay
 
     return () => clearTimeout(timer);
   }, []);

@@ -49,7 +49,13 @@ const getDesignTokens = (mode: PaletteMode) => {
       h3: {
         fontWeight: 700,
         fontFamily: "'montserrat', sans-serif"
-      }
+      },
+      body1: {
+        lineHeight: 1.7,
+      },
+      body2: {
+        lineHeight: 1.6,
+      },
     },
     components: {
       MuiLink: {

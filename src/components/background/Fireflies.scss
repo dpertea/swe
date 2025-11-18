@@ -1,13 +1,16 @@
+@use "sass:math";
+@use "sass:list";
+
 $quantity: 20;
 $highlight-colors: (
- /* #c586c0, // purple (functions)
+  /* #c586c0, // purple (functions)
   #9cdcfe, // blue (variables)
   #ce9178, // peach (strings)
   #dcdcaa, // yellow (numbers)
   #569cd6, // light blue (keywords)
   #4ec9b0, // teal (types)
   #d16969  // red (errors)*/
-  #fcd34d
+    #fcd34d
 );
 
 #background-wrapper {
@@ -21,6 +24,8 @@ $highlight-colors: (
   overflow: hidden;
   margin: 0;
   padding: 0;
+  pointer-events: none;
+  z-index: 0;
 }
 
 /*body {
@@ -39,7 +44,7 @@ $highlight-colors: (
 
   &::before,
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     height: 100%;
@@ -56,7 +61,7 @@ $highlight-colors: (
   &::after {
     background: white;
     opacity: 0;
-    box-shadow: 0 0 0vw 0vw #fcd34d; 
+    box-shadow: 0 0 0vw 0vw #fcd34d;
     animation: drift ease alternate infinite, flash ease infinite;
     /*text-shadow:
     0 0 6px #fcd34d,
@@ -68,29 +73,28 @@ $highlight-colors: (
 
 // Generate variations per firefly instance
 @for $i from 1 through $quantity {
-  $rotationSpeed: random(10) + 8s;
-  //$color: nth($highlight-colors, ($i % length($highlight-colors)) + 1);
-  $color: nth($highlight-colors, ($i % length($highlight-colors)) + 1);
+  $rotationSpeed: math.random(10) + 8s;
+  //$color: list.nth($highlight-colors, ($i % list.length($highlight-colors)) + 1);
+  $color: list.nth(
+    $highlight-colors,
+    ($i % list.length($highlight-colors)) + 1
+  );
 
   .firefly:nth-child(#{$i}) {
-    left: calc(#{random(90)} * 1%); // instead of 100%
-    top: calc(#{random(90)} * 1%);
-    animation-duration: #{random(60) + 20}s;
+    left: calc(#{math.random(90)} * 1%); // instead of 100%
+    top: calc(#{math.random(90)} * 1%);
+    animation-duration: #{math.random(60) + 20}s;
     color: $color;
     text-shadow: 0 0 10px $color;
-
 
     &::before {
       animation-duration: $rotationSpeed;
     }
 
     &::after {
-      animation-duration: $rotationSpeed, #{random(6000) + 5000}ms;
-      animation-delay: 0ms, #{random(8000) + 500}ms;
-      text-shadow:
-      0 0 6px $color,
-      0 0 12px $color,
-      0 0 20px $color;
+      animation-duration: $rotationSpeed, #{math.random(6000) + 5000}ms;
+      animation-delay: 0ms, #{math.random(8000) + 500}ms;
+      text-shadow: 0 0 6px $color, 0 0 12px $color, 0 0 20px $color;
     }
   }
 }
@@ -105,7 +109,9 @@ $highlight-colors: (
 }
 
 @keyframes flash {
-  0%, 30%, 100% {
+  0%,
+  30%,
+  100% {
     opacity: 0;
     box-shadow: 0 0 0vw 0vw currentColor;
   }
