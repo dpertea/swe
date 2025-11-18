@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { CssBaseline, ThemeProvider, Box } from "@mui/material";
-import { ThemeContext } from "./context/ThemeContext";
 import { ThemeContextProvider } from "./context/ThemeContextProvider";
 import { darkTheme } from "./theme";
 import { Navbar } from "./components/NavBar";

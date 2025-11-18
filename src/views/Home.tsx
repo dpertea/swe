@@ -19,7 +19,7 @@ export const Home: React.FC = () => {
         }}
       >
         <Grid container justifyContent="center" alignItems="center" spacing={2}>
-          <Grid xs={12} md={10}>
+          <Grid item xs={12} md={10}>
             <Box
               sx={{
                 display: "flex",
