@@ -39,8 +39,7 @@ const TextDecryptEffect: React.FC<TextDecryptEffectProps> = ({
         transition: "color 0.1s ease, text-shadow 0.2s ease",
       }}
     >
-      {result}
-      {" "}
+      {result}{" "}
     </Box>
   );
 };

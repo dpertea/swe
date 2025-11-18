@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   TextField,
@@ -25,6 +25,15 @@ export const Contact: React.FC = () => {
     message: "",
   });
 
+  // Initialize EmailJS with your public key
+  useEffect(() => {
+    const publicKey =
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "your_public_key_xxxxxxx";
+    if (publicKey && publicKey !== "your_public_key_xxxxxxx") {
+      emailjs.init(publicKey);
+    }
+  }, []);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -36,10 +45,14 @@ export const Contact: React.FC = () => {
 
     try {
       await emailjs.send(
-        "your_service_id",
-        "your_template_id",
-        form,
-        "your_user_id"
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_xxxxxxx",
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_xxxxxxx",
+        {
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        }
+        // Public key is now initialized via emailjs.init() in useEffect
       );
 
       setSnackbar({
