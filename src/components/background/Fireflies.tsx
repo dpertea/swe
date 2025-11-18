@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./fireflies.scss";
+import "./Fireflies.scss";
 
 const Fireflies: React.FC = () => {
   const [visible, setVisible] = useState(false);
