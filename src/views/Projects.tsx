@@ -28,21 +28,21 @@ const projects: Project[] = [
   {
     title: "Kenwood Tavern",
     description:
-      "A simple, responsive, single-page React landing page for a local Baltimore bar, built to highlight their atmosphere, hours, and specials. To help them grow a mailing list without ongoing costs, I integrated Firebase to handle email sign-ups and give them a lightweight, self-managed solution with zero subscription fees. Additionally I implemented a feature to directly interact with instagram's api, in order to fetch and display the latest photos posted to their instagram account. The design is simple, mobile-friendly, and optimized for local discovery.",
+      "A responsive single-page React application for a local Baltimore establishment, featuring a modern design that highlights atmosphere, hours, and specials. Integrated Firebase for email list management, providing a cost-effective solution without subscription fees. Implemented Instagram API integration to dynamically display the latest social media content. Built with mobile-first design principles and optimized for local discovery and engagement.",
     still: projOneStill,
     gif: projOneGif,
   },
   {
     title: "Job Satisfaction Report",
     description:
-      "An interactive web dashboard for a Harvard University-led survey on workplace well-being developed in React with a Python FastAPI and PostgreSQL database. I developed the Auth0 authentication flow and participated in the full data pipeline to help clean and aggregate responses from thousands of employee surveys into our postgreSQL database and then performed complex queries and calculations in Python for integration with our frontend React App and its many data visualizations. The resulting site gives chief acedemic officers of institutions clear insights into key drivers of satisfaction and turns complex survey data into actionable recommendations for institutions.",
+      "An interactive data visualization dashboard for a Harvard University-led workplace well-being survey. Built with React frontend and Python FastAPI backend, integrated with PostgreSQL for data management. Developed Auth0 authentication flow and implemented end-to-end data pipeline processing thousands of survey responses. Created complex data aggregations and statistical calculations to power comprehensive visualizations. Delivers actionable insights to academic leadership on key drivers of employee satisfaction and institutional performance.",
     still: projTwoStill,
     gif: projTwoGif,
   },
   {
     title: "The Guardian Newsreader",
     description:
-      "A simple interface to interact with The Guardian's news API to easily search and access publications by date, edition, tag, and more. Built with React and Material UI, this was my first ever attempt at building a React App before landing my first job and discovering my passion for full stack development.",
+      "A news aggregation interface leveraging The Guardian's API to search and filter publications by date, edition, and topic. Built with React and Material UI, featuring intuitive navigation and responsive design. Demonstrates API integration, state management, and modern React development practices.",
     still: projThreeStill,
     gif: projThreeGif,
   },
@@ -60,8 +60,8 @@ const ImageWrapper = styled(Box)(({ theme }) => ({
 
   // from medium screens up:
   [theme.breakpoints.up("md")]: {
-    width: "45%",
-    margin: theme.spacing(5),
+    width: "48%",
+    margin: theme.spacing(4),
     marginLeft: 0,
     marginRight: 0,
   },
@@ -69,26 +69,17 @@ const ImageWrapper = styled(Box)(({ theme }) => ({
   "& .project-image": {
     transition: "transform 0.3s ease, box-shadow 0.3s ease",
   },
-  "& .project-image:hover": {
-    transform: "scale(1.05)",
-    boxShadow: "1px 1px 10px 2px #646cff",
-  },
-  "& .project-image:hover + .accent": {
-    transform: "translate(0, 0) rotate(0deg) scale(1.15)",
-    width: "100%",
-    height: "100%",
-  },
 }));
 
 export const Projects: React.FC = () => (
-  <Container maxWidth="lg" sx={{ py: 8, position: "relative", zIndex: 1 }}>
+  <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 }, position: "relative", zIndex: 1 }}>
     <Typography
       variant="h3"
       align="center"
       gutterBottom
       sx={{
         fontWeight: 700,
-        mb: 6,
+        mb: { xs: 4, md: 8 },
         backgroundColor: "#121212",
         display: "inline-block",
         px: 2,
@@ -97,21 +88,6 @@ export const Projects: React.FC = () => (
     >
       Projects
     </Typography>
-    <Box
-      sx={{
-        textAlign: "center",
-      }}
-    >
-      <Typography
-        variant="body2"
-        color="text.secondary"
-        sx={{ fontStyle: "italic" }}
-      >
-        <span style={{ color: "#fcd34d" }}>*** </span>This site is actively
-        under construction. More project samples coming soon…
-        <span style={{ color: "#fcd34d" }}>*** </span>
-      </Typography>
-    </Box>
 
     {projects.map((proj, idx) => {
       const isReversed = idx % 2 === 1;
@@ -137,7 +113,7 @@ const ProjectRow: React.FC<{ project: Project; isReversed: boolean }> = ({
 
   const isHovered = imageHovered || descriptionHovered;
 
-  // Intersection Observer for mobile autoplay
+  // observer for mobile autoplay
   useEffect(() => {
     if (!isMobile || !imageRef.current) return;
 
@@ -162,9 +138,9 @@ const ProjectRow: React.FC<{ project: Project; isReversed: boolean }> = ({
           md: isReversed ? "row-reverse" : "row",
         },
         alignItems: "center",
-        gap: { xs: 2, md: 12 },
+        gap: { xs: 3, md: 8 },
         justifyContent: { xs: "center", md: "space-between" },
-        marginBottom: 4,
+        marginBottom: { xs: 6, md: 8 },
         maxWidth: { xs: 600, md: "100%" },
         marginLeft: "auto",
         marginRight: "auto",
@@ -196,12 +172,13 @@ const ProjectRow: React.FC<{ project: Project; isReversed: boolean }> = ({
             position: "absolute",
             top: 0,
             left: 0,
-            width: isHovered ? "100%" : 180,
-            height: isHovered ? "100%" : 180,
-            backgroundColor: "#fcd34d",
+            width: isHovered ? "100%" : 120,
+            height: isHovered ? "100%" : 120,
+            backgroundColor: "rgba(252, 211, 77, 0.15)",
+            border: "1px solid rgba(252, 211, 77, 0.3)",
             transform: isHovered
-              ? "translate(0, 0) rotate(0deg) scale(1.15)"
-              : "translate(-40px, -40px) rotate(45deg) scale(1)",
+              ? "translate(0, 0) rotate(0deg) scale(1.05)"
+              : "translate(-30px, -30px) rotate(45deg) scale(1)",
             transformOrigin: "center",
             transition:
               "transform 0.5s ease, width 0.5s ease, height 0.5s ease",
@@ -217,20 +194,31 @@ const ProjectRow: React.FC<{ project: Project; isReversed: boolean }> = ({
         sx={{
           width: "100%",
           backgroundColor: { xs: "transparent", md: "#1e1e1e" },
-          padding: { xs: 0, md: 2 },
+          padding: { xs: 0, md: 3 },
           borderRadius: { xs: 0, md: 1 },
           cursor: "pointer",
-          transition: "transform 0.3s ease",
-          transform: isHovered ? "translateY(-4px)" : "translateY(0)",
+          transition: "transform 0.3s ease, box-shadow 0.3s ease",
+          transform: isHovered ? "translateY(-2px)" : "translateY(0)",
+          boxShadow: isHovered ? "0 4px 12px rgba(0, 0, 0, 0.2)" : "none",
         }}
       >
-        <Typography variant="h5" sx={{ fontWeight: 600, mb: 2 }}>
+        <Typography 
+          variant="h5" 
+          sx={{ 
+            fontWeight: 600, 
+            mb: 2,
+            color: "text.primary"
+          }}
+        >
           {project.title}
         </Typography>
         <Typography
           variant="body1"
           color="text.secondary"
-          sx={{ lineHeight: 1.8 }}
+          sx={{ 
+            lineHeight: 1.8,
+            fontSize: "1rem"
+          }}
         >
           {project.description}
         </Typography>
@@ -245,15 +233,12 @@ const HoverSwapImage: React.FC<{
   gif: string;
   forceHover?: boolean;
 }> = ({ still, gif, forceHover = false }) => {
-  const [hover, setHover] = useState(false);
-  const showGif = hover || forceHover;
+  const showGif = forceHover;
 
   return (
     <Box
       component="img"
       src={showGif ? gif : still}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
       alt="Project preview"
       className="project-image"
       sx={{
@@ -262,8 +247,8 @@ const HoverSwapImage: React.FC<{
         width: "100%",
         height: "auto",
         display: "block",
-        transform: showGif ? "scale(1.05)" : "scale(1)",
-        boxShadow: showGif ? "1px 1px 10px 2px #646cff" : "none",
+        transform: showGif ? "scale(1.02)" : "scale(1)",
+        boxShadow: showGif ? "0 4px 20px rgba(252, 211, 77, 0.3)" : "none",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
       }}
     />

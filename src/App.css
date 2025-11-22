@@ -81,20 +81,10 @@ section {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
+  width: 80px;
+  height: 2px;
   background: #fcd34d;
-  border-radius: 2px;
-}
-
-/* typing effect - removed for cleaner look */
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+  border-radius: 1px;
 }
 
 .card {

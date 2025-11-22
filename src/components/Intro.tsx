@@ -45,6 +45,8 @@ export const Intro: React.FC = () => {
           display: "inline-block",
           px: 1,
           mb: 2,
+          fontWeight: 700,
+          fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
         }}
       >
         Hi, I'm{" "}
@@ -67,9 +69,11 @@ export const Intro: React.FC = () => {
           display: "inline-block",
           px: 1,
           mb: 1,
+          fontWeight: 400,
+          fontSize: { xs: "1.1rem", sm: "1.25rem", md: "1.5rem" },
         }}
       >
-        and I like to build
+        I build
       </Typography>
       <br />
       <Box
@@ -112,9 +116,12 @@ export const Intro: React.FC = () => {
           borderColor: "accent.main",
           color: "accent.main",
           "&:hover": {
-            backgroundColor: "rgba(252, 211, 77, 0.1)",
+            backgroundColor: "rgba(252, 211, 77, 0.15)",
             borderColor: "accent.main",
+            transform: "translateY(-2px)",
+            boxShadow: "0 4px 12px rgba(252, 211, 77, 0.2)",
           },
+          transition: "all 0.3s ease",
         }}
         onClick={scrollToProjects}
       >

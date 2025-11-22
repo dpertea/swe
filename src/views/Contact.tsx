@@ -101,7 +101,7 @@ export const Contact: React.FC = () => {
         variant="h3"
         component="h2"
         sx={{
-          mb: 4,
+          mb: 3,
           backgroundColor: "#121212",
           display: "inline-block",
           px: 2,
@@ -110,16 +110,17 @@ export const Contact: React.FC = () => {
         Contact
       </Typography>
       <Typography
-        variant="h5"
+        variant="body1"
+        color="text.secondary"
         gutterBottom
         sx={{
           mb: 4,
-          backgroundColor: "#121212",
-          display: "inline-block",
-          px: 2,
+          maxWidth: 500,
+          mx: "auto",
+          lineHeight: 1.8,
         }}
       >
-        I look forward to hearing from you.
+        I'm always open to discussing new opportunities, interesting projects, or potential collaborations. Feel free to reach out.
       </Typography>
 
       <Box
@@ -130,8 +131,10 @@ export const Contact: React.FC = () => {
         sx={{
           animation: `${dropDown} 0.8s ease-out`,
           backgroundColor: "#1e1e1e",
-          padding: 2,
+          padding: { xs: 2, sm: 3 },
           borderRadius: 1,
+          maxWidth: 600,
+          width: "100%",
         }}
       >
         {["name", "email", "message"].map((field) => (

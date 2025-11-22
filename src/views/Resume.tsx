@@ -114,7 +114,7 @@ export const Resume: React.FC = () => {
           variant="h3"
           component="h2"
           sx={{
-            mb: 4,
+            mb: 3,
             backgroundColor: "#121212",
             display: "inline-block",
             px: 2,

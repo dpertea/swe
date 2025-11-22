@@ -95,11 +95,13 @@ export const Navbar: React.FC<{ show: boolean }> = ({ show }) => {
       position="fixed"
       elevation={2}
       sx={{
-        backgroundColor: "#121212",
-        boxShadow: show ? "0 2px 8px rgba(0,0,0,0.3)" : "none",
+        backgroundColor: "rgba(18, 18, 18, 0.95)",
+        backdropFilter: "blur(10px)",
+        boxShadow: show ? "0 2px 12px rgba(0,0,0,0.4)" : "none",
         transform: show ? "translateY(0)" : "translateY(-100%)",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
         zIndex: 1000,
+        borderBottom: show ? "1px solid rgba(255, 255, 255, 0.05)" : "none",
       }}
     >
       <Toolbar sx={{ justifyContent: "center", gap: 2 }}>
@@ -121,7 +123,7 @@ export const Navbar: React.FC<{ show: boolean }> = ({ show }) => {
                 padding: "6px 16px",
                 border: "none",
                 borderBottom: isActive
-                  ? "2px solid #fcd34d"
+                  ? "2px solid rgba(252, 211, 77, 0.9)"
                   : "2px solid transparent",
                 borderRadius: 0,
                 backgroundColor: "transparent",
@@ -130,7 +132,7 @@ export const Navbar: React.FC<{ show: boolean }> = ({ show }) => {
                 "&:hover": {
                   color: "accent.main",
                   backgroundColor: "transparent",
-                  borderBottom: "2px solid #fcd34d",
+                  borderBottom: "2px solid rgba(252, 211, 77, 0.8)",
                   outline: "none",
                   boxShadow: "none",
                 },
