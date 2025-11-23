@@ -128,30 +128,28 @@ export const Navbar: React.FC<{ show: boolean }> = ({ show }) => {
                   : "2px solid transparent",
                 borderRadius: 0,
                 backgroundColor: "transparent",
-                outline: "none !important",
-                boxShadow: "none !important",
                 "&:hover": {
                   color: "accent.main",
                   backgroundColor: "transparent",
                   borderBottom: "2px solid rgba(252, 211, 77, 0.8)",
-                  outline: "none",
-                  boxShadow: "none",
                 },
                 "&:focus": {
                   outline: "none !important",
                   boxShadow: "none !important",
+                  backgroundColor: "rgba(252, 211, 77, 0.15) !important",
+                  color: "accent.main !important",
                 },
                 "&:focus-visible": {
                   outline: "none !important",
                   boxShadow: "none !important",
-                },
-                "&:active": {
-                  outline: "none !important",
-                  boxShadow: "none !important",
+                  backgroundColor: "rgba(252, 211, 77, 0.15) !important",
+                  color: "accent.main !important",
                 },
                 "&.Mui-focusVisible": {
                   outline: "none !important",
                   boxShadow: "none !important",
+                  backgroundColor: "rgba(252, 211, 77, 0.15) !important",
+                  color: "accent.main !important",
                 },
               }}
             >

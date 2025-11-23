@@ -94,7 +94,13 @@ export const Intro: React.FC = () => {
               width: "100%",
             }}
           >
-            <Typography variant="h5" component="span" sx={{ lineHeight: 1.4 }}>
+            <Typography 
+              variant="h5" 
+              component="span" 
+              sx={{ lineHeight: 1.4 }}
+              aria-live="polite"
+              aria-atomic="true"
+            >
               <TextDecryptEffect textValues={buildValues} />
             </Typography>
           </Box>

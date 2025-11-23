@@ -88,6 +88,25 @@ const getDesignTokens = (mode: PaletteMode) => {
             "&:hover svg": {
               color: accentMain,
             },
+            "&:focus-visible": {
+              outline: "none",
+              boxShadow: `0 0 0 2px ${accentMain}40`,
+            },
+          },
+        },
+      },
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            "&:focus": {
+              outline: "none !important",
+            },
+            "&:focus-visible": {
+              outline: "none !important",
+            },
+            "&.Mui-focusVisible": {
+              outline: "none !important",
+            },
           },
         },
       },

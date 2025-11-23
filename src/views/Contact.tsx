@@ -156,6 +156,8 @@ export const Contact: React.FC = () => {
             required
             value={form[field as keyof typeof form]}
             onChange={handleChange}
+            aria-required="true"
+            aria-invalid={false}
             sx={{
               "& label.Mui-focused": { color: "accent.main" },
               "& .MuiOutlinedInput-root": {
@@ -170,6 +172,7 @@ export const Contact: React.FC = () => {
           type="submit"
           variant="contained"
           fullWidth
+          aria-label="Submit contact form"
           sx={{
             mt: 3,
             py: 1.5,
@@ -179,6 +182,11 @@ export const Contact: React.FC = () => {
             color: "#000",
             "&:hover": {
               backgroundColor: "accent.dark",
+            },
+            "&:focus-visible": {
+              outline: "none",
+              boxShadow: "none",
+              backgroundColor: "rgba(252, 211, 77, 0.2)",
             },
           }}
         >

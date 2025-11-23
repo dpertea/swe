@@ -33,7 +33,7 @@ const projects: Project[] = [
   {
     title: "Kenwood Tavern",
     description:
-      "A responsive single-page React application for a local Baltimore establishment, featuring a modern design that highlights atmosphere, hours, and specials. Integrated Firebase for email list management, providing a cost-effective solution without subscription fees. Implemented Instagram API integration to dynamically display the latest social media content. Built with mobile-first design principles and optimized for local discovery and engagement.",
+      "A responsive single-page React application for a local Baltimore establishment, featuring a modern design that highlights atmosphere, hours, and specials. Integrated Firebase for email list management, providing a zero cost solution without subscription fees. Implemented Instagram API integration to dynamically display the latest social media content. Built with mobile-first design principles and optimized for local discovery and engagement.",
     still: projOneStill,
     gif: projOneGif,
   },
@@ -98,6 +98,7 @@ export const Projects: React.FC = () => (
     <Typography
       id="projects-title"
       variant="h3"
+      component="h2"
       align="center"
       gutterBottom
       sx={{
@@ -123,7 +124,8 @@ export const Projects: React.FC = () => (
         opacity: 0.7,
       }}
     >
-      Note: Any sensitive data shown in project demos has been falsified for demonstration purposes.
+      Note: Any sensitive application data has been falsified for demonstration
+      purposes.
     </Typography>
 
     {projects.map((proj, idx) => {
@@ -198,6 +200,7 @@ const ProjectRow: React.FC<{ project: Project; isReversed: boolean }> = ({
         <HoverSwapImage
           still={project.still}
           gif={project.gif}
+          projectTitle={project.title}
           forceHover={isMobile ? isInView : isHovered}
         />
 
@@ -227,6 +230,8 @@ const ProjectRow: React.FC<{ project: Project; isReversed: boolean }> = ({
       <Box
         onMouseEnter={() => setDescriptionHovered(true)}
         onMouseLeave={() => setDescriptionHovered(false)}
+        role="article"
+        aria-label={`${project.title} project description`}
         sx={{
           width: "100%",
           backgroundColor: { xs: "transparent", md: "#1e1e1e" },
@@ -267,15 +272,18 @@ const ProjectRow: React.FC<{ project: Project; isReversed: boolean }> = ({
 const HoverSwapImage: React.FC<{
   still: string;
   gif: string;
+  projectTitle: string;
   forceHover?: boolean;
-}> = ({ still, gif, forceHover = false }) => {
+}> = ({ still, gif, projectTitle, forceHover = false }) => {
   const showGif = forceHover;
 
   return (
     <Box
       component="img"
       src={showGif ? gif : still}
-      alt="Project preview"
+      alt={`${projectTitle} project preview${
+        showGif ? " - animated demonstration" : ""
+      }`}
       className="project-image"
       sx={{
         position: "relative",

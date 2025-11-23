@@ -4,6 +4,29 @@
   box-sizing: border-box;
 }
 
+/* Override browser default focus styles - but allow custom focus styles in components */
+button:focus,
+a:focus {
+  outline: none !important;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: none !important;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /** debug
 * { 
   outline: 1px solid red;

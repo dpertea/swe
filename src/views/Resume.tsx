@@ -136,6 +136,7 @@ export const Resume: React.FC = () => {
             component="a"
             href={`${import.meta.env.BASE_URL}/DoriaPerteaResume.pdf`}
             download
+            aria-label="Download resume PDF"
             endIcon={<DownloadIcon />}
             sx={{
               color: "accent.main",
@@ -150,6 +151,11 @@ export const Resume: React.FC = () => {
               "&:hover": {
                 backgroundColor: "rgba(252, 211, 77, 0.15)",
                 color: "accent.main",
+              },
+              "&:focus-visible": {
+                outline: "none",
+                boxShadow: "none",
+                backgroundColor: "rgba(252, 211, 77, 0.15)",
               },
               display: "flex",
               alignItems: "center",

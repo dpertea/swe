@@ -117,7 +117,7 @@ export const Home: React.FC = () => {
               <Box
                 component="img"
                 src={headshot}
-                alt="Doria Pertea"
+                alt="Doria Pertea, Software Engineer"
                 sx={{
                   width: "100%",
                   height: "100%",
@@ -158,8 +158,8 @@ export const Home: React.FC = () => {
           }}
         >
           <Button
-            component="a"
             onClick={scrollToProjects}
+            aria-label="Scroll to Projects section"
             sx={{
               color: "accent.main",
               fontSize: "0.875rem",
@@ -173,6 +173,11 @@ export const Home: React.FC = () => {
               "&:hover": {
                 backgroundColor: "rgba(252, 211, 77, 0.15)",
                 color: "accent.main",
+              },
+              "&:focus-visible": {
+                outline: "none",
+                boxShadow: "none",
+                backgroundColor: "rgba(252, 211, 77, 0.15)",
               },
               display: "flex",
               alignItems: "center",
