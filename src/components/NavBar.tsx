@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { AppBar, Toolbar, Button } from "@mui/material";
 
 const navLinks = [
+  { label: "Home", id: "home" },
   { label: "Projects", id: "projects" },
   { label: "Resume", id: "resume" },
   { label: "Contact", id: "contact" },
