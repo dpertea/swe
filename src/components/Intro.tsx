@@ -52,55 +52,65 @@ export const Intro: React.FC = () => {
           </Box>
         </Typography>
 
-        <Typography
-          variant="h5"
-          component="h2"
-          sx={{
-            opacity: 0,
-            animation: "fadeIn 0.8s ease-out 0.8s forwards",
-            "@keyframes fadeIn": {
-              from: { opacity: 0 },
-              to: { opacity: 1 },
-            },
-            mb: 0.5,
-            fontWeight: 400,
-            fontSize: { xs: "1.1rem", sm: "1.25rem", md: "1.5rem" },
-            textAlign: "center",
-            lineHeight: 1.4,
-          }}
-        >
-          I build
-        </Typography>
-
         <Box
           sx={{
-            opacity: 0,
-            animation: "fadeIn 0.8s ease-out 0.8s forwards",
-            "@keyframes fadeIn": {
-              from: { opacity: 0 },
-              to: { opacity: 1 },
-            },
-            mb: 2,
-            textAlign: "center",
-          }}
-        >
-          <Typography variant="h5" component="span" sx={{ lineHeight: 1.4 }}>
-            <TextDecryptEffect textValues={buildValues} />
-          </Typography>
-        </Box>
-
-        <Box
-          sx={{
-            opacity: 0,
-            animation: "fadeIn 0.8s ease-out 0.8s forwards",
-            "@keyframes fadeIn": {
-              from: { opacity: 0 },
-              to: { opacity: 1 },
-            },
+            width: "100%",
             display: "flex",
-            justifyContent: "center",
+            flexDirection: "column",
+            alignItems: "flex-start",
           }}
         >
+          <Typography
+            variant="h5"
+            component="h2"
+            sx={{
+              opacity: 0,
+              animation: "fadeIn 0.8s ease-out 0.8s forwards",
+              "@keyframes fadeIn": {
+                from: { opacity: 0 },
+                to: { opacity: 1 },
+              },
+              mb: 0.5,
+              fontWeight: 400,
+              fontSize: { xs: "1.1rem", sm: "1.25rem", md: "1.5rem" },
+              textAlign: "left",
+              lineHeight: 1.4,
+              width: "100%",
+            }}
+          >
+            I build
+          </Typography>
+
+          <Box
+            sx={{
+              opacity: 0,
+              animation: "fadeIn 0.8s ease-out 0.8s forwards",
+              "@keyframes fadeIn": {
+                from: { opacity: 0 },
+                to: { opacity: 1 },
+              },
+              mb: 2,
+              textAlign: "left",
+              width: "100%",
+            }}
+          >
+            <Typography variant="h5" component="span" sx={{ lineHeight: 1.4 }}>
+              <TextDecryptEffect textValues={buildValues} />
+            </Typography>
+          </Box>
+
+          <Box
+            sx={{
+              opacity: 0,
+              animation: "fadeIn 0.8s ease-out 0.8s forwards",
+              "@keyframes fadeIn": {
+                from: { opacity: 0 },
+                to: { opacity: 1 },
+              },
+              display: "flex",
+              justifyContent: "flex-start",
+            }}
+          >
           <Stack direction="row" spacing={1.5}>
             <Tooltip title="LinkedIn">
               <IconButton
@@ -151,6 +161,7 @@ export const Intro: React.FC = () => {
               </IconButton>
             </Tooltip>
           </Stack>
+          </Box>
         </Box>
       </Box>
     </AnimatedContainer>
