@@ -11,10 +11,15 @@ import {
 import projOneGif from "../assets/projects/kenwood.gif";
 import projTwoGif from "../assets/projects/JobSat-SHORT.gif";
 import projThreeGif from "../assets/projects/the-guardian.gif";
+import projFourGif from "../assets/projects/wcus-fin.gif";
+import projFiveGif from "../assets/projects/myis-fin.gif";
 
 import projOneStill from "../assets/projects/kenwood-still.jpg";
 import projTwoStill from "../assets/projects/JobSat-still.jpg";
 import projThreeStill from "../assets/projects/the-guardian-still.jpg";
+import projFourStill from "../assets/projects/wcus-still.png";
+import projFiveStill from "../assets/projects/myis-still.png";
+
 import "../App.css";
 
 interface Project {
@@ -31,6 +36,20 @@ const projects: Project[] = [
       "A responsive single-page React application for a local Baltimore establishment, featuring a modern design that highlights atmosphere, hours, and specials. Integrated Firebase for email list management, providing a cost-effective solution without subscription fees. Implemented Instagram API integration to dynamically display the latest social media content. Built with mobile-first design principles and optimized for local discovery and engagement.",
     still: projOneStill,
     gif: projOneGif,
+  },
+  {
+    title: "Waterborne Commerce Reporting Tool",
+    description:
+      "An interactive data exploration platform for analyzing vessel trip, cargo, and tonnage data across U.S. waterways. Built with React and GraphQL, integrated with OracleDB to provide access to years of import and export records from ports, locks, and Corps of Engineers projects. Enables users to query, filter, and visualize complex maritime commerce data with intuitive interfaces and comprehensive reporting capabilities.",
+    still: projFourStill,
+    gif: projFourGif,
+  },
+  {
+    title: "Multi-Year Investment Strategy Tool",
+    description:
+      "A strategic planning application that integrates a Python forecasting model with a React frontend to optimize project portfolio management. Intelligently ranks projects based on budget constraints and funding availability. Features an interactive interface allowing users to manually adjust project rankings and compare multiple funding scenarios. Generates detailed timelines visualizing project funding status, including fully funded, paused, awaiting funding, and unfunded states to support data-driven investment decisions.",
+    still: projFiveStill,
+    gif: projFiveGif,
   },
   {
     title: "Job Satisfaction Report",
@@ -72,7 +91,10 @@ const ImageWrapper = styled(Box)(({ theme }) => ({
 }));
 
 export const Projects: React.FC = () => (
-  <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 }, position: "relative", zIndex: 1 }}>
+  <Container
+    maxWidth="lg"
+    sx={{ py: { xs: 6, md: 10 }, position: "relative", zIndex: 1 }}
+  >
     <Typography
       variant="h3"
       align="center"
@@ -172,13 +194,12 @@ const ProjectRow: React.FC<{ project: Project; isReversed: boolean }> = ({
             position: "absolute",
             top: 0,
             left: 0,
-            width: isHovered ? "100%" : 120,
-            height: isHovered ? "100%" : 120,
-            backgroundColor: "rgba(252, 211, 77, 0.15)",
-            border: "1px solid rgba(252, 211, 77, 0.3)",
+            width: isHovered ? "100%" : 180,
+            height: isHovered ? "100%" : 180,
+            backgroundColor: "#fcd34d",
             transform: isHovered
-              ? "translate(0, 0) rotate(0deg) scale(1.05)"
-              : "translate(-30px, -30px) rotate(45deg) scale(1)",
+              ? "translate(0, 0) rotate(0deg) scale(1.15)"
+              : "translate(-40px, -40px) rotate(45deg) scale(1)",
             transformOrigin: "center",
             transition:
               "transform 0.5s ease, width 0.5s ease, height 0.5s ease",
@@ -202,12 +223,12 @@ const ProjectRow: React.FC<{ project: Project; isReversed: boolean }> = ({
           boxShadow: isHovered ? "0 4px 12px rgba(0, 0, 0, 0.2)" : "none",
         }}
       >
-        <Typography 
-          variant="h5" 
-          sx={{ 
-            fontWeight: 600, 
+        <Typography
+          variant="h5"
+          sx={{
+            fontWeight: 600,
             mb: 2,
-            color: "text.primary"
+            color: "text.primary",
           }}
         >
           {project.title}
@@ -215,9 +236,9 @@ const ProjectRow: React.FC<{ project: Project; isReversed: boolean }> = ({
         <Typography
           variant="body1"
           color="text.secondary"
-          sx={{ 
+          sx={{
             lineHeight: 1.8,
-            fontSize: "1rem"
+            fontSize: "1rem",
           }}
         >
           {project.description}
@@ -247,8 +268,8 @@ const HoverSwapImage: React.FC<{
         width: "100%",
         height: "auto",
         display: "block",
-        transform: showGif ? "scale(1.02)" : "scale(1)",
-        boxShadow: showGif ? "0 4px 20px rgba(252, 211, 77, 0.3)" : "none",
+        transform: showGif ? "scale(1.05)" : "scale(1)",
+        boxShadow: showGif ? "1px 1px 10px 2px #646cff" : "none",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
       }}
     />
