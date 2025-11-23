@@ -1,21 +1,18 @@
 import React from "react";
-import { Typography, Container, Button, Box } from "@mui/material";
+import { Typography, Container, Box, IconButton, Stack, Tooltip } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import TextDecryptEffect from "./TextDecryptEffect";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const buildValues = ["Workflows", "Automations", "Experiences", "Tools"];
 
 const AnimatedContainer = styled(Container)(() => ({
   animation: "slideInLeft 0.8s ease-out forwards",
   opacity: 0,
-  textAlign: "center", // default for mobile
+  textAlign: "center",
   position: "relative",
   zIndex: 1,
-
-  "@media (min-width:600px)": {
-    textAlign: "left", // switch to left-aligned on sm+
-  },
   "@keyframes slideInLeft": {
     from: {
       transform: "translateX(500px)",
@@ -29,104 +26,133 @@ const AnimatedContainer = styled(Container)(() => ({
 }));
 
 export const Intro: React.FC = () => {
-  const scrollToProjects = () => {
-    const section = document.getElementById("projects");
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
   return (
     <AnimatedContainer maxWidth="sm">
-      <Typography
-        variant="h2"
-        component="h1"
-        sx={{
-          backgroundColor: "#121212",
-          display: "inline-block",
-          px: 1,
-          mb: 2,
-          fontWeight: 700,
-          fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
-        }}
-      >
-        Hi, I'm{" "}
-        <Box component="span" color="accent.main">
-          Doria
-        </Box>
-      </Typography>
-      <br />
-      <Typography
-        variant="h5"
-        component="h2"
-        sx={{
-          opacity: 0,
-          animation: "fadeIn 0.8s ease-out 0.8s forwards",
-          "@keyframes fadeIn": {
-            from: { opacity: 0 },
-            to: { opacity: 1 },
-          },
-          backgroundColor: "#121212",
-          display: "inline-block",
-          px: 1,
-          mb: 1,
-          fontWeight: 400,
-          fontSize: { xs: "1.1rem", sm: "1.25rem", md: "1.5rem" },
-        }}
-      >
-        I build
-      </Typography>
-      <br />
       <Box
         sx={{
-          opacity: 0,
-          animation: "fadeIn 0.8s ease-out 0.8s forwards",
-          "@keyframes fadeIn": {
-            from: { opacity: 0 },
-            to: { opacity: 1 },
-          },
-          backgroundColor: "#121212",
-          display: "inline-block",
-          px: 1,
-          mb: 3,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
         }}
       >
-        <Typography variant="h5" component="span">
-          <TextDecryptEffect textValues={buildValues} />
+        <Typography
+          variant="h2"
+          component="h1"
+          sx={{
+            mb: 1.5,
+            fontWeight: 700,
+            fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
+            textAlign: "center",
+            lineHeight: 1.2,
+          }}
+        >
+          Hi, I'm{" "}
+          <Box component="span" color="accent.main">
+            Doria
+          </Box>
         </Typography>
+
+        <Typography
+          variant="h5"
+          component="h2"
+          sx={{
+            opacity: 0,
+            animation: "fadeIn 0.8s ease-out 0.8s forwards",
+            "@keyframes fadeIn": {
+              from: { opacity: 0 },
+              to: { opacity: 1 },
+            },
+            mb: 0.5,
+            fontWeight: 400,
+            fontSize: { xs: "1.1rem", sm: "1.25rem", md: "1.5rem" },
+            textAlign: "center",
+            lineHeight: 1.4,
+          }}
+        >
+          I build
+        </Typography>
+
+        <Box
+          sx={{
+            opacity: 0,
+            animation: "fadeIn 0.8s ease-out 0.8s forwards",
+            "@keyframes fadeIn": {
+              from: { opacity: 0 },
+              to: { opacity: 1 },
+            },
+            mb: 2,
+            textAlign: "center",
+          }}
+        >
+          <Typography variant="h5" component="span" sx={{ lineHeight: 1.4 }}>
+            <TextDecryptEffect textValues={buildValues} />
+          </Typography>
+        </Box>
+
+        <Box
+          sx={{
+            opacity: 0,
+            animation: "fadeIn 0.8s ease-out 0.8s forwards",
+            "@keyframes fadeIn": {
+              from: { opacity: 0 },
+              to: { opacity: 1 },
+            },
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Stack direction="row" spacing={1.5}>
+            <Tooltip title="LinkedIn">
+              <IconButton
+                component="a"
+                href="https://www.linkedin.com/in/doria-pertea-20333220b/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                sx={{
+                  color: "#fff",
+                  fontSize: "2.25rem",
+                  "& svg": {
+                    fontSize: "2.25rem",
+                  },
+                  "&:hover": {
+                    backgroundColor: "rgba(252, 211, 77, 0.15)",
+                    transform: "translateY(-2px)",
+                    boxShadow: "0 4px 12px rgba(252, 211, 77, 0.2)",
+                  },
+                  transition: "all 0.3s ease",
+                }}
+              >
+                <LinkedInIcon />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="GitHub">
+              <IconButton
+                component="a"
+                href="https://github.com/dpertea"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                sx={{
+                  color: "#fff",
+                  fontSize: "2.25rem",
+                  "& svg": {
+                    fontSize: "2.25rem",
+                  },
+                  "&:hover": {
+                    backgroundColor: "rgba(252, 211, 77, 0.15)",
+                    transform: "translateY(-2px)",
+                    boxShadow: "0 4px 12px rgba(252, 211, 77, 0.2)",
+                  },
+                  transition: "all 0.3s ease",
+                }}
+              >
+                <GitHubIcon />
+              </IconButton>
+            </Tooltip>
+          </Stack>
+        </Box>
       </Box>
-      <br />
-      {/*href="/DoriaPerteaResume.pdf"*/}
-      <Button
-        component="a"
-        variant="outlined"
-        endIcon={<ArrowDownwardIcon />}
-        sx={{
-          mt: 4,
-          px: 4,
-          py: 1.5,
-          fontSize: "1rem",
-          fontWeight: 600,
-          opacity: 0,
-          animation: "fadeIn 0.8s ease-out 1.6s forwards",
-          "@keyframes fadeIn": {
-            from: { opacity: 0 },
-            to: { opacity: 1 },
-          },
-          backgroundColor: "#121212",
-          borderColor: "accent.main",
-          color: "accent.main",
-          "&:hover": {
-            backgroundColor: "rgba(252, 211, 77, 0.15)",
-            borderColor: "accent.main",
-            transform: "translateY(-2px)",
-            boxShadow: "0 4px 12px rgba(252, 211, 77, 0.2)",
-          },
-          transition: "all 0.3s ease",
-        }}
-        onClick={scrollToProjects}
-      >
-        See My Work
-      </Button>
     </AnimatedContainer>
   );
 };
