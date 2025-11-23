@@ -96,6 +96,7 @@ export const Projects: React.FC = () => (
     sx={{ py: { xs: 6, md: 10 }, position: "relative", zIndex: 1 }}
   >
     <Typography
+      id="projects-title"
       variant="h3"
       align="center"
       gutterBottom

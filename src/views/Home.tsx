@@ -1,10 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Button } from "@mui/material";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { Intro } from "../components/Intro";
 import headshot from "../assets/headshot.jpg";
 
 export const Home: React.FC = () => {
+  const [isProjectsTitleVisible, setIsProjectsTitleVisible] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    // Track when initial animation completes
+    const animationTimer = setTimeout(() => {
+      setHasAnimated(true);
+    }, 3000); // 2.2s delay + 0.8s duration
+
+    // Intersection Observer to check if Projects title is visible
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Show button when Projects title is NOT visible
+        setIsProjectsTitleVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0, // Trigger as soon as any part is visible
+      }
+    );
+
+    const projectsTitle = document.getElementById("projects-title");
+    if (projectsTitle) {
+      observer.observe(projectsTitle);
+    }
+
+    return () => {
+      clearTimeout(animationTimer);
+      if (projectsTitle) {
+        observer.unobserve(projectsTitle);
+      }
+    };
+  }, []);
+
   const scrollToProjects = () => {
     const section = document.getElementById("projects");
     if (section) {
@@ -106,38 +139,44 @@ export const Home: React.FC = () => {
           sx={{
             position: "absolute",
             bottom: { xs: 24, sm: 32 },
-            left: "50%",
-            transform: "translateX(-50%)",
+            left: 0,
+            right: 0,
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            opacity: 0,
-            animation: "fadeIn 0.8s ease-out 2.2s forwards",
+            opacity: hasAnimated && !isProjectsTitleVisible ? 1 : 0,
+            animation: hasAnimated ? "none" : "fadeIn 0.8s ease-out 2.2s forwards",
             "@keyframes fadeIn": {
               from: { opacity: 0 },
               to: { opacity: 1 },
             },
             zIndex: 10,
             width: "100%",
+            px: 2,
+            transition: hasAnimated ? "opacity 0.3s ease" : "none",
+            pointerEvents: hasAnimated && !isProjectsTitleVisible ? "auto" : "none",
           }}
         >
           <Button
             component="a"
             onClick={scrollToProjects}
             sx={{
-              color: "text.secondary",
+              color: "accent.main",
               fontSize: "0.875rem",
               fontWeight: 400,
               textTransform: "none",
-              padding: 0,
+              padding: "8px 16px",
               minWidth: "auto",
+              width: "100%",
               backgroundColor: "transparent",
+              transition: "all 0.3s ease",
               "&:hover": {
-                backgroundColor: "transparent",
+                backgroundColor: "rgba(252, 211, 77, 0.15)",
                 color: "accent.main",
               },
               display: "flex",
               alignItems: "center",
+              justifyContent: "center",
               gap: 0.5,
             }}
           >

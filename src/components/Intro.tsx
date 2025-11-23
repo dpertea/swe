@@ -57,7 +57,7 @@ export const Intro: React.FC = () => {
             width: "100%",
             display: "flex",
             flexDirection: "column",
-            alignItems: "flex-start",
+            alignItems: { xs: "center", sm: "flex-start" },
           }}
         >
           <Typography
@@ -73,7 +73,7 @@ export const Intro: React.FC = () => {
               mb: 0.5,
               fontWeight: 400,
               fontSize: { xs: "1.1rem", sm: "1.25rem", md: "1.5rem" },
-              textAlign: "left",
+              textAlign: { xs: "center", sm: "left" },
               lineHeight: 1.4,
               width: "100%",
             }}
@@ -90,7 +90,7 @@ export const Intro: React.FC = () => {
                 to: { opacity: 1 },
               },
               mb: 2,
-              textAlign: "left",
+              textAlign: { xs: "center", sm: "left" },
               width: "100%",
             }}
           >
@@ -108,10 +108,16 @@ export const Intro: React.FC = () => {
                 to: { opacity: 1 },
               },
               display: "flex",
-              justifyContent: "flex-start",
+              justifyContent: { xs: "center", sm: "flex-start" },
             }}
           >
-          <Stack direction="row" spacing={1.5}>
+          <Stack 
+            direction="row" 
+            spacing={1.5}
+            sx={{
+              marginLeft: { xs: 0, sm: "-8px" }, // Negative margin to align with text
+            }}
+          >
             <Tooltip title="LinkedIn">
               <IconButton
                 component="a"
@@ -122,6 +128,7 @@ export const Intro: React.FC = () => {
                 sx={{
                   color: "#fff",
                   fontSize: "2.25rem",
+                  padding: { xs: 1, sm: 0.5 }, // Reduced padding on larger screens
                   "& svg": {
                     fontSize: "2.25rem",
                   },
@@ -146,6 +153,7 @@ export const Intro: React.FC = () => {
                 sx={{
                   color: "#fff",
                   fontSize: "2.25rem",
+                  padding: { xs: 1, sm: 0.5 }, // Reduced padding on larger screens
                   "& svg": {
                     fontSize: "2.25rem",
                   },

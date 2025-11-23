@@ -122,30 +122,44 @@ export const Resume: React.FC = () => {
         >
           Resume
         </Typography>
-        <Button
-          component="a"
-          href={`${import.meta.env.BASE_URL}/DoriaPerteaResume.pdf`}
-          download
-          variant="outlined"
-          endIcon={<DownloadIcon />}
+        <Box
           sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
             mt: 3,
-            mb: 4,
-            px: 3,
-            py: 1.5,
-            fontSize: "1rem",
-            fontWeight: 600,
-            backgroundColor: "#121212",
-            borderColor: "accent.main",
-            color: "accent.main",
-            "&:hover": {
-              backgroundColor: "rgba(252, 211, 77, 0.1)",
-              borderColor: "accent.main",
-            },
+            mb: 1.5,
+            px: 2,
           }}
         >
-          Download Resume
-        </Button>
+          <Button
+            component="a"
+            href={`${import.meta.env.BASE_URL}/DoriaPerteaResume.pdf`}
+            download
+            endIcon={<DownloadIcon />}
+            sx={{
+              color: "accent.main",
+              fontSize: "0.875rem",
+              fontWeight: 400,
+              textTransform: "none",
+              padding: "8px 16px",
+              minWidth: "auto",
+              width: "100%",
+              backgroundColor: "transparent",
+              transition: "all 0.3s ease",
+              "&:hover": {
+                backgroundColor: "rgba(252, 211, 77, 0.15)",
+                color: "accent.main",
+              },
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 0.5,
+            }}
+          >
+            Download Resume
+          </Button>
+        </Box>
         {error ? (
           <Alert
             severity="info"
