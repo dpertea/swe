@@ -112,6 +112,20 @@ export const Projects: React.FC = () => (
       Projects
     </Typography>
 
+    <Typography
+      variant="body2"
+      align="center"
+      sx={{
+        mb: { xs: 4, md: 6 },
+        color: "text.secondary",
+        fontStyle: "italic",
+        fontSize: { xs: "0.75rem", sm: "0.875rem" },
+        opacity: 0.7,
+      }}
+    >
+      Note: Any sensitive data shown in project demos has been falsified for demonstration purposes.
+    </Typography>
+
     {projects.map((proj, idx) => {
       const isReversed = idx % 2 === 1;
 
